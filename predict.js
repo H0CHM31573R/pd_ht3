@@ -39,7 +39,7 @@ $("#predict-button").click(async function(){
 					.mean(2)
                     .toFloat()
 					.expandDims(0)
-					.expandDims(-1);
+					.expandDims(-1).div(tf.scalar(255));
             
 //define the Prediction object and put a future event for prediction.
 let prediction = await model.predict(tensor).data();
